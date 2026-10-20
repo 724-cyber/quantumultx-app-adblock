@@ -73,4 +73,3 @@ node cli.cjs verify
 上游为 GPLv3，保留完整许可、原始快照、来源和变更记录。仅署名不替代许可义务。本项目生成的实现按 GPL-3.0-only 提供，无担保。
 
 参考：[QX 官方导入说明](https://github.com/crossutility/Quantumult-X/blob/master/url-scheme.md)、[QX 官方配置说明](https://github.com/crossutility/Quantumult-X/blob/master/sample.conf)。
-
