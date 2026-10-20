@@ -1,0 +1,788 @@
+{
+  "subject": "8a8d4494b315fece95a60f2563866796ae0d217bbc402984a63394360ed71efa",
+  "compilerSha256": "d7337dafae41884405bb0b4e538060447dd3ba3a4b13283b47e13f4e6eab9349",
+  "runId": "beffc210-0faa-4b28-84cb-e67ea63414c6",
+  "fetchedAt": "2026-10-20T03:18:19.676Z",
+  "policy": "aggressive-ad-and-telemetry-blocking",
+  "iosDeviceTested": false,
+  "inputRules": 8891,
+  "uniqueRules": 8750,
+  "effectiveRules": 7641,
+  "coveredRules": 1109,
+  "excluded": [
+    {
+      "key": "host-suffix,couchcoaster.jp",
+      "type": "host-suffix",
+      "value": "couchcoaster.jp",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 131
+        }
+      ],
+      "reason": "Whole-site content/product domain lacks reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,m-78.jp",
+      "type": "host-suffix",
+      "value": "m-78.jp",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 134
+        }
+      ],
+      "reason": "Whole-site commercial/content domain lacks reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,10up.com",
+      "type": "host-suffix",
+      "value": "10up.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 268
+        }
+      ],
+      "reason": "Current public homepage describes a web engineering company; whole-site ad-only blocking is not supported."
+    },
+    {
+      "key": "host-suffix,3dns-2.adobe.com",
+      "type": "host-suffix",
+      "value": "3dns-2.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 407
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence; quarantine rather than conflate with ads."
+    },
+    {
+      "key": "host-suffix,3dns-3.adobe.com",
+      "type": "host-suffix",
+      "value": "3dns-3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 408
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,activate.adobe.com",
+      "type": "host-suffix",
+      "value": "activate.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 764
+        }
+      ],
+      "reason": "Activation is not advertising and must not be bundled as entitlement bypass."
+    },
+    {
+      "key": "host-suffix,activate.wip3.adobe.com",
+      "type": "host-suffix",
+      "value": "activate.wip3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 765
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,activate-sea.adobe.com",
+      "type": "host-suffix",
+      "value": "activate-sea.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 766
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,activate-sjc0.adobe.com",
+      "type": "host-suffix",
+      "value": "activate-sjc0.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 767
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,activation.cyberlink.com",
+      "type": "host-suffix",
+      "value": "activation.cyberlink.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 768
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,activation.easeus.com",
+      "type": "host-suffix",
+      "value": "activation.easeus.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 769
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,adobe-dns.adobe.com",
+      "type": "host-suffix",
+      "value": "adobe-dns.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 1082
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,adobe-dns-2.adobe.com",
+      "type": "host-suffix",
+      "value": "adobe-dns-2.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 1083
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,adobe-dns-3.adobe.com",
+      "type": "host-suffix",
+      "value": "adobe-dns-3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 1084
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,antivirus.baidu.com",
+      "type": "host-suffix",
+      "value": "antivirus.baidu.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 1338
+        }
+      ],
+      "reason": "Security/update software is not equivalent to an ad endpoint."
+    },
+    {
+      "key": "host-suffix,bitsumactivationserver.com",
+      "type": "host-suffix",
+      "value": "bitsumactivationserver.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 1752
+        }
+      ],
+      "reason": "Activation infrastructure has no confirmed ad role."
+    },
+    {
+      "key": "host-suffix,crl.microsoft.com",
+      "type": "host-suffix",
+      "value": "crl.microsoft.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 2383
+        }
+      ],
+      "reason": "Certificate revocation infrastructure is outside advertising scope."
+    },
+    {
+      "key": "host-suffix,ereg.adobe.com",
+      "type": "host-suffix",
+      "value": "ereg.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3155
+        }
+      ],
+      "reason": "Registration infrastructure without confirmed advertising role."
+    },
+    {
+      "key": "host-suffix,ereg.wip3.adobe.com",
+      "type": "host-suffix",
+      "value": "ereg.wip3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3156
+        }
+      ],
+      "reason": "Registration infrastructure without confirmed advertising role."
+    },
+    {
+      "key": "host-suffix,geo2.adobe.com",
+      "type": "host-suffix",
+      "value": "geo2.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3456
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,get3.adobe.com",
+      "type": "host-suffix",
+      "value": "get3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3464
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,hl2rcv.adobe.com",
+      "type": "host-suffix",
+      "value": "hl2rcv.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3707
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,hlrcv.stage.adobe.com",
+      "type": "host-suffix",
+      "value": "hlrcv.stage.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 3709
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,license.lumion3d.com",
+      "type": "host-suffix",
+      "value": "license.lumion3d.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4555
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,license.lumion3d.net",
+      "type": "host-suffix",
+      "value": "license.lumion3d.net",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4556
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,licenses.ashampoo.com",
+      "type": "host-suffix",
+      "value": "licenses.ashampoo.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4557
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,licensing.tableausoftware.com",
+      "type": "host-suffix",
+      "value": "licensing.tableausoftware.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4558
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,liveupdate.mac.sandai.net",
+      "type": "host-suffix",
+      "value": "liveupdate.mac.sandai.net",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4578
+        }
+      ],
+      "reason": "Software update endpoint is not proven to be advertising-only."
+    },
+    {
+      "key": "host-suffix,lm.licenses.adobe.com",
+      "type": "host-suffix",
+      "value": "lm.licenses.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4588
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,lmlicenses.wip4.adobe.com",
+      "type": "host-suffix",
+      "value": "lmlicenses.wip4.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 4592
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,na1r.services.adobe.com",
+      "type": "host-suffix",
+      "value": "na1r.services.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 5324
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,na2m-pr.licenses.adobe.com",
+      "type": "host-suffix",
+      "value": "na2m-pr.licenses.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 5325
+        }
+      ],
+      "reason": "License infrastructure is not advertising."
+    },
+    {
+      "key": "host-suffix,ocsp.godaddy.com",
+      "type": "host-suffix",
+      "value": "ocsp.godaddy.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 5465
+        }
+      ],
+      "reason": "Certificate status infrastructure is outside advertising scope."
+    },
+    {
+      "key": "host-suffix,practivate.adobe.com",
+      "type": "host-suffix",
+      "value": "practivate.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 5797
+        }
+      ],
+      "reason": "Activation is not advertising."
+    },
+    {
+      "key": "host-suffix,security.browser.miui.com",
+      "type": "host-suffix",
+      "value": "security.browser.miui.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 6377
+        }
+      ],
+      "reason": "Browser safety functionality has no confirmed advertising-only purpose."
+    },
+    {
+      "key": "host-suffix,update.360safe.com",
+      "type": "host-suffix",
+      "value": "update.360safe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7100
+        }
+      ],
+      "reason": "Software/security updates are outside the ad scope absent specific evidence."
+    },
+    {
+      "key": "host-suffix,update.avlyun.sec.miui.com",
+      "type": "host-suffix",
+      "value": "update.avlyun.sec.miui.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7101
+        }
+      ],
+      "reason": "Security updates are not advertising."
+    },
+    {
+      "key": "host-suffix,update.bainv.net",
+      "type": "host-suffix",
+      "value": "update.bainv.net",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7102
+        }
+      ],
+      "reason": "Update endpoint has no reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,update.coolyun.com",
+      "type": "host-suffix",
+      "value": "update.coolyun.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7103
+        }
+      ],
+      "reason": "Update endpoint has no reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,update.juw37xqo3x.com",
+      "type": "host-suffix",
+      "value": "update.juw37xqo3x.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7104
+        }
+      ],
+      "reason": "Unclear update endpoint is quarantined pending evidence."
+    },
+    {
+      "key": "host-suffix,update.minipage.2345.com",
+      "type": "host-suffix",
+      "value": "update.minipage.2345.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7105
+        }
+      ],
+      "reason": "Update endpoint has no reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,update.mobile.kugou.com",
+      "type": "host-suffix",
+      "value": "update.mobile.kugou.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7106
+        }
+      ],
+      "reason": "App update endpoint has no reviewed advertising-only evidence."
+    },
+    {
+      "key": "host-suffix,update.sdk.jiguang.cn",
+      "type": "host-suffix",
+      "value": "update.sdk.jiguang.cn",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7107
+        }
+      ],
+      "reason": "SDK update endpoint is not assumed to be an ad request."
+    },
+    {
+      "key": "host-suffix,updatecenter.qq.com",
+      "type": "host-suffix",
+      "value": "updatecenter.qq.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7108
+        }
+      ],
+      "reason": "Software updates are not advertising."
+    },
+    {
+      "key": "host-suffix,updatepage.kuwo.cn",
+      "type": "host-suffix",
+      "value": "updatepage.kuwo.cn",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7109
+        }
+      ],
+      "reason": "Software updates are not advertising."
+    },
+    {
+      "key": "host-suffix,updates-s3.binaryage.com",
+      "type": "host-suffix",
+      "value": "updates-s3.binaryage.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7110
+        }
+      ],
+      "reason": "Software updates are not advertising."
+    },
+    {
+      "key": "host-suffix,wip3.adobe.com",
+      "type": "host-suffix",
+      "value": "wip3.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7388
+        }
+      ],
+      "reason": "Broad Adobe infrastructure has no confirmed advertising-only purpose."
+    },
+    {
+      "key": "host-suffix,wwis-dubc1-vip60.adobe.com",
+      "type": "host-suffix",
+      "value": "wwis-dubc1-vip60.adobe.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7472
+        }
+      ],
+      "reason": "Adobe infrastructure without advertising-specific evidence."
+    },
+    {
+      "key": "host-suffix,mcupdate.gstarcad.com",
+      "type": "host-suffix",
+      "value": "mcupdate.gstarcad.com",
+      "origins": [
+        {
+          "source": "nobyda-ad",
+          "line": 7958
+        }
+      ],
+      "reason": "Software updates are not advertising."
+    },
+    {
+      "key": "user-agent,AVOS*",
+      "type": "user-agent",
+      "value": "AVOS*",
+      "origins": [
+        {
+          "source": "w37-ad",
+          "line": 933
+        }
+      ],
+      "reason": "A whole backend SDK user-agent can include ordinary app data; no advertising-only evidence supports blanket rejection."
+    },
+    {
+      "key": "host,token.safebrowsing.apple",
+      "type": "host",
+      "value": "token.safebrowsing.apple",
+      "origins": [
+        {
+          "source": "w37-privacy",
+          "line": 67
+        }
+      ],
+      "reason": "Security reputation checks are not advertising."
+    },
+    {
+      "key": "host,safebrowsing.googleapis.com",
+      "type": "host",
+      "value": "safebrowsing.googleapis.com",
+      "origins": [
+        {
+          "source": "w37-privacy",
+          "line": 77
+        }
+      ],
+      "reason": "Security reputation checks are not advertising."
+    },
+    {
+      "key": "host,safebrowsing.googleapis-cn.com",
+      "type": "host",
+      "value": "safebrowsing.googleapis-cn.com",
+      "origins": [
+        {
+          "source": "w37-privacy",
+          "line": 78
+        }
+      ],
+      "reason": "Security reputation checks are not advertising."
+    },
+    {
+      "key": "host,safebrowsing.urlsec.qq.com",
+      "type": "host",
+      "value": "safebrowsing.urlsec.qq.com",
+      "origins": [
+        {
+          "source": "w37-privacy",
+          "line": 106
+        }
+      ],
+      "reason": "Security reputation checks are not advertising."
+    }
+  ],
+  "excludedRows": [
+    {
+      "row": "nobyda-ad:7570",
+      "text": "DOMAIN-SUFFIX,XiaoQiang,REJECT",
+      "reason": "Invalid domain",
+      "decision": "Single-label XiaoQiang entry is not a valid public advertising domain and may name a local router."
+    },
+    {
+      "row": "w37-ad:937",
+      "text": "DOMAIN,118.89.204.198",
+      "reason": "Invalid domain",
+      "decision": "An IPv4 literal was mislabeled DOMAIN; the same endpoint remains blocked by the valid /32 CIDR at source row 938."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "nobyda-ad",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list",
+      "sha256": "5f80ba17f518660c56660c70f0c263fab006c3ca5f67ff4b9ceaf94b12761c0d",
+      "license": "GPL-3.0",
+      "licenseUrl": "https://raw.githubusercontent.com/NobyDa/Script/master/LICENSE",
+      "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "id": "w37-ad",
+      "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Advertising.list",
+      "sha256": "f40ae45059f54d6f939c491700d877f769436907f9a42b563f0e8cbabfa5f2f8",
+      "license": "GPL-3.0",
+      "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+      "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "id": "w37-privacy",
+      "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list",
+      "sha256": "4613a728fec974ea33a1674b26b3c70570076764e689ca133466539a181c8e46",
+      "license": "GPL-3.0",
+      "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+      "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "subject": "8a8d4494b315fece95a60f2563866796ae0d217bbc402984a63394360ed71efa",
+    "reviewer": "Codex AI in the user-requested maintenance session",
+    "reviewedAt": "2026-10-20T03:20:58Z",
+    "summary": "AI-reviewed first aggressive candidate. Three public GPLv3 snapshots were freshly downloaded, compared by hash with the earlier audit, parsed and inspected for duplicates, parent-suffix coverage, risky non-ad endpoints and source/script integrity. No upstream JS is executed or passed through. Known security/activation/update conditions and unclear whole-site blocks listed below are excluded; ordinary ad/analytics rejects remain aggressive. This is structural and risk-based review, not a claim that every domain was live-classified or that iOS advertising is eliminated. All available offline App behavior tests must pass before publication.",
+    "scope": [
+      "snapshot and license integrity",
+      "normalization and semantic deduplication",
+      "non-ad safety and entitlement contamination",
+      "App script behavior and protocol separation",
+      "no private subscription or certificate distribution"
+    ],
+    "knownRisks": [
+      "Legacy domain lists contain stale or repurposed entries; some unobserved false positives remain possible.",
+      "Advertising click domains and shared analytics hosts are intentionally aggressive and may affect links, diagnostics and retry queues.",
+      "Current App response support derives from specific Android samples; iOS schema, certificate pinning and runtime routing remain unverified.",
+      "No scheduled updates: only a new explicit human update request starts another fetch and AI review."
+    ],
+    "exclusions": {
+      "user-agent,AVOS*": "A whole backend SDK user-agent can include ordinary app data; no advertising-only evidence supports blanket rejection.",
+      "host,token.safebrowsing.apple": "Security reputation checks are not advertising.",
+      "host,safebrowsing.googleapis.com": "Security reputation checks are not advertising.",
+      "host,safebrowsing.googleapis-cn.com": "Security reputation checks are not advertising.",
+      "host,safebrowsing.urlsec.qq.com": "Security reputation checks are not advertising.",
+      "host-suffix,crl.microsoft.com": "Certificate revocation infrastructure is outside advertising scope.",
+      "host-suffix,ocsp.godaddy.com": "Certificate status infrastructure is outside advertising scope.",
+      "host-suffix,3dns-2.adobe.com": "Adobe infrastructure without advertising-specific evidence; quarantine rather than conflate with ads.",
+      "host-suffix,3dns-3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,activate.adobe.com": "Activation is not advertising and must not be bundled as entitlement bypass.",
+      "host-suffix,activate.wip3.adobe.com": "Activation is not advertising.",
+      "host-suffix,activate-sea.adobe.com": "Activation is not advertising.",
+      "host-suffix,activate-sjc0.adobe.com": "Activation is not advertising.",
+      "host-suffix,activation.cyberlink.com": "Activation is not advertising.",
+      "host-suffix,activation.easeus.com": "Activation is not advertising.",
+      "host-suffix,bitsumactivationserver.com": "Activation infrastructure has no confirmed ad role.",
+      "host-suffix,adobe-dns.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,adobe-dns-2.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,adobe-dns-3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,ereg.adobe.com": "Registration infrastructure without confirmed advertising role.",
+      "host-suffix,ereg.wip3.adobe.com": "Registration infrastructure without confirmed advertising role.",
+      "host-suffix,geo2.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,get3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,hl2rcv.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,hlrcv.stage.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,lm.licenses.adobe.com": "License infrastructure is not advertising.",
+      "host-suffix,lmlicenses.wip4.adobe.com": "License infrastructure is not advertising.",
+      "host-suffix,na1r.services.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,na2m-pr.licenses.adobe.com": "License infrastructure is not advertising.",
+      "host-suffix,practivate.adobe.com": "Activation is not advertising.",
+      "host-suffix,wip3.adobe.com": "Broad Adobe infrastructure has no confirmed advertising-only purpose.",
+      "host-suffix,wwis-dubc1-vip60.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+      "host-suffix,license.lumion3d.com": "License infrastructure is not advertising.",
+      "host-suffix,license.lumion3d.net": "License infrastructure is not advertising.",
+      "host-suffix,licenses.ashampoo.com": "License infrastructure is not advertising.",
+      "host-suffix,licensing.tableausoftware.com": "License infrastructure is not advertising.",
+      "host-suffix,antivirus.baidu.com": "Security/update software is not equivalent to an ad endpoint.",
+      "host-suffix,security.browser.miui.com": "Browser safety functionality has no confirmed advertising-only purpose.",
+      "host-suffix,liveupdate.mac.sandai.net": "Software update endpoint is not proven to be advertising-only.",
+      "host-suffix,update.360safe.com": "Software/security updates are outside the ad scope absent specific evidence.",
+      "host-suffix,update.avlyun.sec.miui.com": "Security updates are not advertising.",
+      "host-suffix,update.bainv.net": "Update endpoint has no reviewed advertising-only evidence.",
+      "host-suffix,update.coolyun.com": "Update endpoint has no reviewed advertising-only evidence.",
+      "host-suffix,update.juw37xqo3x.com": "Unclear update endpoint is quarantined pending evidence.",
+      "host-suffix,update.minipage.2345.com": "Update endpoint has no reviewed advertising-only evidence.",
+      "host-suffix,update.mobile.kugou.com": "App update endpoint has no reviewed advertising-only evidence.",
+      "host-suffix,update.sdk.jiguang.cn": "SDK update endpoint is not assumed to be an ad request.",
+      "host-suffix,updatecenter.qq.com": "Software updates are not advertising.",
+      "host-suffix,updatepage.kuwo.cn": "Software updates are not advertising.",
+      "host-suffix,updates-s3.binaryage.com": "Software updates are not advertising.",
+      "host-suffix,mcupdate.gstarcad.com": "Software updates are not advertising.",
+      "host-suffix,10up.com": "Current public homepage describes a web engineering company; whole-site ad-only blocking is not supported.",
+      "host-suffix,m-78.jp": "Whole-site commercial/content domain lacks reviewed advertising-only evidence.",
+      "host-suffix,couchcoaster.jp": "Whole-site content/product domain lacks reviewed advertising-only evidence."
+    },
+    "excludedRows": {
+      "nobyda-ad:7570": "Single-label XiaoQiang entry is not a valid public advertising domain and may name a local router.",
+      "w37-ad:937": "An IPv4 literal was mislabeled DOMAIN; the same endpoint remains blocked by the valid /32 CIDR at source row 938."
+    },
+    "references": [
+      "https://10up.com/",
+      "https://github.com/NobyDa/Script/blob/master/LICENSE",
+      "https://github.com/w37fhy/QuantumultX/blob/master/LICENSE"
+    ]
+  },
+  "importUrl": "https://quantumult.app/x/open-app/add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Freject.list%2C%20tag%3DOwn-Adblock%2C%20force-policy%3Dreject%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%2C%22rewrite_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Frewrite.snippet%2C%20tag%3DOwn-App-Ads%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%7D"
+}

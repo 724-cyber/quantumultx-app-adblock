@@ -1,0 +1,21 @@
+{
+  "baseUrl": "https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist",
+  "updateMode": "manual-human-request-only",
+  "sources": [
+    {
+      "id": "nobyda-ad",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list",
+      "license": {"spdx":"GPL-3.0","url":"https://raw.githubusercontent.com/NobyDa/Script/master/LICENSE"}
+    },
+    {
+      "id": "w37-ad",
+      "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Advertising.list",
+      "license": {"spdx":"GPL-3.0","url":"https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE"}
+    },
+    {
+      "id": "w37-privacy",
+      "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list",
+      "license": {"spdx":"GPL-3.0","url":"https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE"}
+    }
+  ]
+}

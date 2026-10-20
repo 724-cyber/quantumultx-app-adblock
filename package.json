@@ -1,0 +1,8 @@
+{
+  "name": "owned-quantumultx-adblock",
+  "version": "0.1.0",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "engines": {"node": ">=20"},
+  "scripts": {"test":"node --test test/*.test.cjs","verify":"node cli.cjs verify"}
+}

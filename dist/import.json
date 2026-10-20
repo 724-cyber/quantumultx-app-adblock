@@ -1,0 +1,8 @@
+{
+  "filter_remote": [
+    "https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist/reject.list, tag=Own-Adblock, force-policy=reject, update-interval=86400, opt-parser=false, enabled=true"
+  ],
+  "rewrite_remote": [
+    "https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist/rewrite.snippet, tag=Own-App-Ads, update-interval=86400, opt-parser=false, enabled=true"
+  ]
+}

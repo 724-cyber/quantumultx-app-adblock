@@ -1,0 +1,6 @@
+# Known shared analytics hosts. Aggressive profile, affects other apps using these hosts too.
+host, h-adashx.ut.taobao.com, reject
+host, adashx.m.taobao.com, reject
+host-suffix, app-analytics-services.com, reject
+host-suffix, umeng.com, reject
+host-suffix, sentry.io, reject
