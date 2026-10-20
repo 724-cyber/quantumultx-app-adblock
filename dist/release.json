@@ -1,8 +1,8 @@
 {
-  "subject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
+  "subject": "0df228ab49a3ef4218d004d6bf0ad533c786642aaf4d6cabd9fab6a2af264bc9",
   "compilerSha256": "d7337dafae41884405bb0b4e538060447dd3ba3a4b13283b47e13f4e6eab9349",
-  "runId": "ca6c0b83-8375-4828-8be1-a1f074716f27",
-  "fetchedAt": "2026-10-20T03:59:11.839Z",
+  "runId": "18b30f4f-04b4-47f9-8881-912386a28b1c",
+  "fetchedAt": "2026-10-20T12:51:57.436Z",
   "policy": "aggressive-ad-and-telemetry-blocking",
   "iosDeviceTested": false,
   "inputRules": 8891,
@@ -701,10 +701,20 @@
   ],
   "review": {
     "status": "approved",
-    "subject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
-    "reviewer": "Codex AI maintenance session with three Douyin analysis agents and an independent adapter review",
-    "reviewedAt": "2026-10-20T04:02:31Z",
-    "summary": "User-requested Douyin integration reviewed before publication. All three upstream rule snapshots and GPLv3 license texts were freshly downloaded and are byte-identical to the previous release; the existing 54 reasoned exclusions and two malformed-row decisions remain unchanged, including the certificate/activation entries awaiting user markers. Reviewed the Douyin module, its immutable bundle and route metadata against 133 REA records with byte-preserving partial-carrier provenance. Tested explicit ad filtering, ordinary game/video/picture preservation, original numeric bytes, cache flags, duplicate-key ambiguity, Ali regressions and exact telemetry URL scope. Enabled only three response adapters and four exact shared-log rejection rules; batch, ack/stock and dynamic ad trackers remain unenabled pending complete scope/protocol evidence. No original APK, decompiled method bodies, personal profile, credentials or certificate material is published. Static and offline evidence does not establish iOS acceptance, latest-app compatibility or complete elimination of advertisements or telemetry.",
+    "subject": "0df228ab49a3ef4218d004d6bf0ad533c786642aaf4d6cabd9fab6a2af264bc9",
+    "reviewer": "Codex AI manual source-refresh and deduplication review",
+    "reviewedAt": "2026-10-20T12:52:51Z",
+    "summary": "User explicitly requested that existing remote advertising sources be reviewed, merged and deduplicated together with continued phone investigation. Freshly downloaded NobyDa AdRule, w37 Advertising and Tracking plus their GPLv3 licenses. Compared exact bytes, normalized rule sets, compiler and all three curated inputs against the preceding reviewed release: no source, license, compiler, adapter or rule behavior changed. Re-examined the existing 54 explicit exclusions and two malformed-row decisions; all remain applicable, including security/activation entries awaiting user classification. Separately fetched the old Hijacking source: its SHA-256 exactly matches this run's Tracking snapshot, so it is not added as a duplicate source. Re-ran 70 project tests, including the isolated capture tool, and reviewed parent-suffix collapse, provenance and immutable script retention. No new WeChat blocking rule is introduced: phone capture execution/export and actual iOS-visible endpoints remain unverified. iPhone Mirroring screenshots showed the task-addition gallery, but automated in-phone clicks did not visibly take effect; this is not a successful phone trace or ad-blocking acceptance test. The temporary collector remains independent. Do not claim all iPhone ads or telemetry are blocked, and do not broaden MITM, disable TLS validation or replace existing personal phone settings to hide these gaps.",
+    "priorReviewedSubject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
+    "duplicateSourceCheck": {
+      "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Hijacking.list",
+      "retrievedAt": "2026-10-20T12:52:00.952Z",
+      "httpStatus": 200,
+      "bytes": 2745,
+      "sha256": "4613a728fec974ea33a1674b26b3c70570076764e689ca133466539a181c8e46",
+      "sameAs": "w37-privacy",
+      "decision": "Do not add a second copy of the exact Tracking bytes; preserve source attribution in this review."
+    },
     "scope": [
       "snapshot and license integrity",
       "normalization and semantic deduplication",
@@ -725,7 +735,8 @@
       "Success Evidence subjects are unsigned, byte-preserving single-DEX carriers; cross-DEX, native, reflection and dynamic behavior remain bounded.",
       "Feed and splash require visible supported JSON. Different iOS hosts, protobuf/encryption, certificate pinning, HTTP/3 and stale cache may leave ads.",
       "Realtime action_type=1 and separate valid old splash inventory can still fall back to cached ads.",
-      "Shared AppLog/SDKMonitor rejection affects other apps and can retain/retry local logs; dynamic ad-click tracker paths are not claimed covered."
+      "Shared AppLog/SDKMonitor rejection affects other apps and can retain/retry local logs; dynamic ad-click tracker paths are not claimed covered.",
+      "Phone UI clicks were not observed to succeed through the available Mirroring control connection; task execution, export failure versus zero records, and current device rule/cache state are not yet determined."
     ],
     "exclusions": {
       "user-agent,AVOS*": "A whole backend SDK user-agent can include ordinary app data; no advertising-only evidence supports blanket rejection.",
@@ -795,18 +806,17 @@
       "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/android-32.2.6/douyin.apk"
     ],
     "verification": {
-      "projectTests": 54,
-      "independentLosslessAssertions": 2509,
-      "independentBundleAssertions": 25,
-      "telemetryRegexAssertions": 81,
-      "reaRecordFiles": 133,
-      "availableCompleteMethods": 100,
-      "byteVerifiedCarriers": 18,
-      "byteVerifiedOriginalMembers": 40,
-      "iosRuntimeTested": false
+      "projectTests": 70,
+      "normalizedAddedRules": 0,
+      "normalizedRemovedRules": 0,
+      "compilerAndCuratedBytesUnchanged": true,
+      "sourceAndLicenseBytesUnchanged": true,
+      "temporaryCaptureBuildReproducible": true,
+      "iosRuntimeTested": false,
+      "iphoneTaskExecutionOrExportVerified": false
     },
     "sourceDiff": {
-      "runId": "ca6c0b83-8375-4828-8be1-a1f074716f27",
+      "runId": "18b30f4f-04b4-47f9-8881-912386a28b1c",
       "ruleAndLicenseBytesUnchanged": true,
       "snapshots": [
         {

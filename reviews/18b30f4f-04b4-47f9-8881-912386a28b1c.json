@@ -1,0 +1,161 @@
+{
+  "status": "approved",
+  "subject": "0df228ab49a3ef4218d004d6bf0ad533c786642aaf4d6cabd9fab6a2af264bc9",
+  "reviewer": "Codex AI manual source-refresh and deduplication review",
+  "reviewedAt": "2026-10-20T12:52:51Z",
+  "summary": "User explicitly requested that existing remote advertising sources be reviewed, merged and deduplicated together with continued phone investigation. Freshly downloaded NobyDa AdRule, w37 Advertising and Tracking plus their GPLv3 licenses. Compared exact bytes, normalized rule sets, compiler and all three curated inputs against the preceding reviewed release: no source, license, compiler, adapter or rule behavior changed. Re-examined the existing 54 explicit exclusions and two malformed-row decisions; all remain applicable, including security/activation entries awaiting user classification. Separately fetched the old Hijacking source: its SHA-256 exactly matches this run's Tracking snapshot, so it is not added as a duplicate source. Re-ran 70 project tests, including the isolated capture tool, and reviewed parent-suffix collapse, provenance and immutable script retention. No new WeChat blocking rule is introduced: phone capture execution/export and actual iOS-visible endpoints remain unverified. iPhone Mirroring screenshots showed the task-addition gallery, but automated in-phone clicks did not visibly take effect; this is not a successful phone trace or ad-blocking acceptance test. The temporary collector remains independent. Do not claim all iPhone ads or telemetry are blocked, and do not broaden MITM, disable TLS validation or replace existing personal phone settings to hide these gaps.",
+  "priorReviewedSubject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
+  "duplicateSourceCheck": {
+    "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Hijacking.list",
+    "retrievedAt": "2026-10-20T12:52:00.952Z",
+    "httpStatus": 200,
+    "bytes": 2745,
+    "sha256": "4613a728fec974ea33a1674b26b3c70570076764e689ca133466539a181c8e46",
+    "sameAs": "w37-privacy",
+    "decision": "Do not add a second copy of the exact Tracking bytes; preserve source attribution in this review."
+  },
+  "scope": [
+    "snapshot and license integrity",
+    "normalization and semantic deduplication",
+    "non-ad safety and entitlement contamination",
+    "App script behavior and protocol separation",
+    "no private subscription or certificate distribution",
+    "Douyin feed/image/game ad predicates and splash/cache consumer mapping",
+    "Lossless raw JSON range edits and duplicate decision-key regression",
+    "Protocol-aware exact log-path rejection without fake success or whole-domain expansion",
+    "Cross-source host/suffix/keyword overlap and original Ali behavior"
+  ],
+  "knownRisks": [
+    "Legacy domain lists contain stale or repurposed entries; some unobserved false positives remain possible.",
+    "Advertising click domains and shared analytics hosts are intentionally aggressive and may affect links, diagnostics and retry queues.",
+    "Current App response support derives from specific Android samples; iOS schema, certificate pinning and runtime routing remain unverified.",
+    "No scheduled updates: only a new explicit human update request starts another fetch and AI review.",
+    "Douyin sample is historical Android com.ss.android.ugc.aweme.mobile 32.2.6/320206, not the latest standard Android build or current iOS traffic.",
+    "Success Evidence subjects are unsigned, byte-preserving single-DEX carriers; cross-DEX, native, reflection and dynamic behavior remain bounded.",
+    "Feed and splash require visible supported JSON. Different iOS hosts, protobuf/encryption, certificate pinning, HTTP/3 and stale cache may leave ads.",
+    "Realtime action_type=1 and separate valid old splash inventory can still fall back to cached ads.",
+    "Shared AppLog/SDKMonitor rejection affects other apps and can retain/retry local logs; dynamic ad-click tracker paths are not claimed covered.",
+    "Phone UI clicks were not observed to succeed through the available Mirroring control connection; task execution, export failure versus zero records, and current device rule/cache state are not yet determined."
+  ],
+  "exclusions": {
+    "user-agent,AVOS*": "A whole backend SDK user-agent can include ordinary app data; no advertising-only evidence supports blanket rejection.",
+    "host,token.safebrowsing.apple": "Security reputation checks are not advertising.",
+    "host,safebrowsing.googleapis.com": "Security reputation checks are not advertising.",
+    "host,safebrowsing.googleapis-cn.com": "Security reputation checks are not advertising.",
+    "host,safebrowsing.urlsec.qq.com": "Security reputation checks are not advertising.",
+    "host-suffix,crl.microsoft.com": "Certificate revocation infrastructure is outside advertising scope.",
+    "host-suffix,ocsp.godaddy.com": "Certificate status infrastructure is outside advertising scope.",
+    "host-suffix,3dns-2.adobe.com": "Adobe infrastructure without advertising-specific evidence; quarantine rather than conflate with ads.",
+    "host-suffix,3dns-3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,activate.adobe.com": "Activation is not advertising and must not be bundled as entitlement bypass.",
+    "host-suffix,activate.wip3.adobe.com": "Activation is not advertising.",
+    "host-suffix,activate-sea.adobe.com": "Activation is not advertising.",
+    "host-suffix,activate-sjc0.adobe.com": "Activation is not advertising.",
+    "host-suffix,activation.cyberlink.com": "Activation is not advertising.",
+    "host-suffix,activation.easeus.com": "Activation is not advertising.",
+    "host-suffix,bitsumactivationserver.com": "Activation infrastructure has no confirmed ad role.",
+    "host-suffix,adobe-dns.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,adobe-dns-2.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,adobe-dns-3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,ereg.adobe.com": "Registration infrastructure without confirmed advertising role.",
+    "host-suffix,ereg.wip3.adobe.com": "Registration infrastructure without confirmed advertising role.",
+    "host-suffix,geo2.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,get3.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,hl2rcv.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,hlrcv.stage.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,lm.licenses.adobe.com": "License infrastructure is not advertising.",
+    "host-suffix,lmlicenses.wip4.adobe.com": "License infrastructure is not advertising.",
+    "host-suffix,na1r.services.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,na2m-pr.licenses.adobe.com": "License infrastructure is not advertising.",
+    "host-suffix,practivate.adobe.com": "Activation is not advertising.",
+    "host-suffix,wip3.adobe.com": "Broad Adobe infrastructure has no confirmed advertising-only purpose.",
+    "host-suffix,wwis-dubc1-vip60.adobe.com": "Adobe infrastructure without advertising-specific evidence.",
+    "host-suffix,license.lumion3d.com": "License infrastructure is not advertising.",
+    "host-suffix,license.lumion3d.net": "License infrastructure is not advertising.",
+    "host-suffix,licenses.ashampoo.com": "License infrastructure is not advertising.",
+    "host-suffix,licensing.tableausoftware.com": "License infrastructure is not advertising.",
+    "host-suffix,antivirus.baidu.com": "Security/update software is not equivalent to an ad endpoint.",
+    "host-suffix,security.browser.miui.com": "Browser safety functionality has no confirmed advertising-only purpose.",
+    "host-suffix,liveupdate.mac.sandai.net": "Software update endpoint is not proven to be advertising-only.",
+    "host-suffix,update.360safe.com": "Software/security updates are outside the ad scope absent specific evidence.",
+    "host-suffix,update.avlyun.sec.miui.com": "Security updates are not advertising.",
+    "host-suffix,update.bainv.net": "Update endpoint has no reviewed advertising-only evidence.",
+    "host-suffix,update.coolyun.com": "Update endpoint has no reviewed advertising-only evidence.",
+    "host-suffix,update.juw37xqo3x.com": "Unclear update endpoint is quarantined pending evidence.",
+    "host-suffix,update.minipage.2345.com": "Update endpoint has no reviewed advertising-only evidence.",
+    "host-suffix,update.mobile.kugou.com": "App update endpoint has no reviewed advertising-only evidence.",
+    "host-suffix,update.sdk.jiguang.cn": "SDK update endpoint is not assumed to be an ad request.",
+    "host-suffix,updatecenter.qq.com": "Software updates are not advertising.",
+    "host-suffix,updatepage.kuwo.cn": "Software updates are not advertising.",
+    "host-suffix,updates-s3.binaryage.com": "Software updates are not advertising.",
+    "host-suffix,mcupdate.gstarcad.com": "Software updates are not advertising.",
+    "host-suffix,10up.com": "Current public homepage describes a web engineering company; whole-site ad-only blocking is not supported.",
+    "host-suffix,m-78.jp": "Whole-site commercial/content domain lacks reviewed advertising-only evidence.",
+    "host-suffix,couchcoaster.jp": "Whole-site content/product domain lacks reviewed advertising-only evidence."
+  },
+  "excludedRows": {
+    "nobyda-ad:7570": "Single-label XiaoQiang entry is not a valid public advertising domain and may name a local router.",
+    "w37-ad:937": "An IPv4 literal was mislabeled DOMAIN; the same endpoint remains blocked by the valid /32 CIDR at source row 938."
+  },
+  "references": [
+    "https://10up.com/",
+    "https://github.com/NobyDa/Script/blob/master/LICENSE",
+    "https://github.com/w37fhy/QuantumultX/blob/master/LICENSE",
+    "https://www.douyin.com/downloadpage/app",
+    "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/android-32.2.6/douyin.apk"
+  ],
+  "verification": {
+    "projectTests": 70,
+    "normalizedAddedRules": 0,
+    "normalizedRemovedRules": 0,
+    "compilerAndCuratedBytesUnchanged": true,
+    "sourceAndLicenseBytesUnchanged": true,
+    "temporaryCaptureBuildReproducible": true,
+    "iosRuntimeTested": false,
+    "iphoneTaskExecutionOrExportVerified": false
+  },
+  "sourceDiff": {
+    "runId": "18b30f4f-04b4-47f9-8881-912386a28b1c",
+    "ruleAndLicenseBytesUnchanged": true,
+    "snapshots": [
+      {
+        "id": "nobyda-ad",
+        "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list",
+        "sha256": "5f80ba17f518660c56660c70f0c263fab006c3ca5f67ff4b9ceaf94b12761c0d",
+        "license": "GPL-3.0",
+        "licenseUrl": "https://raw.githubusercontent.com/NobyDa/Script/master/LICENSE",
+        "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      {
+        "id": "w37-ad",
+        "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Advertising.list",
+        "sha256": "f40ae45059f54d6f939c491700d877f769436907f9a42b563f0e8cbabfa5f2f8",
+        "license": "GPL-3.0",
+        "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+        "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      {
+        "id": "w37-privacy",
+        "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list",
+        "sha256": "4613a728fec974ea33a1674b26b3c70570076764e689ca133466539a181c8e46",
+        "license": "GPL-3.0",
+        "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+        "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      }
+    ]
+  },
+  "appAnalysis": {
+    "douyin": {
+      "package": "com.ss.android.ugc.aweme.mobile",
+      "version": "32.2.6",
+      "versionCode": "320206",
+      "sourceApkSha256": "46a3ebd3cf4b9a5020ebcea3aee02facaa80a7baae492b2c12090e5e0999baf0",
+      "sourcePage": "https://www.douyin.com/downloadpage/app",
+      "coverageDocument": "DOUYIN.md",
+      "responseRuleCount": 3,
+      "telemetryRuleCount": 4,
+      "gameScope": "Advertising only; retain organic game videos",
+      "directBusinessOrTelemetryRequestsPerformed": false
+    }
+  }
+}
