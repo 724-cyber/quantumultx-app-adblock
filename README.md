@@ -6,7 +6,33 @@
 
 [一键添加自己的去广告订阅](https://quantumult.app/x/open-app/add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Freject.list%2C%20tag%3DOwn-Adblock%2C%20force-policy%3Dreject%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%2C%22rewrite_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Frewrite.snippet%2C%20tag%3DOwn-App-Ads%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%7D)
 
-这个入口一次添加本仓库的分流和重写资源，保留机场资源与现有证书。手机只使用本仓库发布的规则及固定哈希 JS，不直接跟随上游源，不执行上游可变 JS。
+这个入口一次添加本仓库的分流和重写资源，不是替换整份配置。它使用 QX 官方的 `add-resource` 方式保留已有资源；本仓库不提供机场节点、个人证书或代理服务。手机只使用本仓库发布的规则及固定哈希 JS，不直接跟随上游源，不执行上游可变 JS。[QX 官方导入说明](https://github.com/crossutility/Quantumult-X/blob/master/url-scheme.md)
+
+### 已经导入过
+
+如果 QX 里已经有 `Own-Adblock` 和 `Own-App-Ads`，只需分别刷新这两个资源，不要再次导入。刷新成功后退出并重新打开目标 App。本次抖音适配会随重写资源更新，无需复制 JS 或更换证书。
+
+### 首次安装：按这个顺序做
+
+1. 在 QX 中先将现有配置备份到自己的设备，确认当前网络可用。备份可能含机场订阅和证书私钥，不要上传到公开仓库。
+2. 用 iPhone 的 Safari 打开本页，点击上方“一键添加”，允许打开 Quantumult X，并确认添加资源。不要选择替换整份配置。
+3. 检查资源列表：分流资源应有 `Own-Adblock`，重写资源应有 `Own-App-Ads`；两者均已启用且下载成功。使用原生 QX 格式，不需要开启资源解析器。
+4. 开启 QX 的重写、MITM（HTTPS 解密）和隧道，并使用按规则分流模式。已有可用且受信任的 QX 证书可直接沿用；没有证书时，按下节完成首次证书设置。
+5. 停用旧的同类广告/遥测订阅，以及与本源覆盖相同接口的本地闲鱼、淘宝、抖音重写。保留机场节点、正常业务分流、策略组、DNS 和个人证书。原配置中的 `Advertising`、`AdRule`、`Tracking`、`Hijacking` 是需要核对的同类资源；先备份再停用，不要直接清空全部规则。一键添加本身不会处理这些旧资源。
+6. 从后台退出并重新打开目标 App，检查开屏、列表和 QX 请求记录，同时确认登录、搜索、播放等正常业务。已缓存的广告可能暂时仍出现，不必先清空 App 数据或退出账号。
+
+### 首次证书设置
+
+域名分流拦截不需要 MITM 证书，但 HTTPS 接口的广告字段过滤需要它。
+
+1. 在 QX 的 MITM 设置中生成自己的证书，并按 App 提示安装证书描述文件；不要安装他人分享的 CA，也不要分享自己的证书私钥或口令。
+2. 在 iOS 设置中完成描述文件安装。入口可能显示为“已下载描述文件”，或位于“通用 → VPN 与设备管理”，名称随系统版本变化。
+3. 前往“设置 → 通用 → 关于本机 → 证书信任设置”，为刚安装的 QX 根证书开启完全信任。仅安装描述文件并不等于已信任。[Apple 官方证书信任说明](https://support.apple.com/zh-cn/102390)
+4. 返回 QX，确认重写和 MITM 都已开启，`Own-App-Ads` 已下载。重写资源自带当前所需的主机列表，不要为了去广告把 MITM 主机扩大成 `*`。
+
+MITM 会让 QX 在本机解密匹配主机的 HTTPS 流量，证书和脚本必须可信。原配置若启用了 `skip_validating_cert = true`，应单独复核；不要把关闭上游证书校验当作去广告必需步骤。[QX 官方 MITM 配置说明](https://github.com/crossutility/Quantumult-X/blob/master/sample.conf)
+
+### 一键链接没有唤起 QX
 
 Universal Link 没有唤起 QX 时，可复制原生地址：
 
@@ -14,9 +40,17 @@ Universal Link 没有唤起 QX 时，可复制原生地址：
 quantumult-x:///add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Freject.list%2C%20tag%3DOwn-Adblock%2C%20force-policy%3Dreject%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%2C%22rewrite_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Frewrite.snippet%2C%20tag%3DOwn-App-Ads%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%7D
 ~~~
 
-首次需要自己安装并完全信任 MITM 证书，开启重写和 MITM。已有证书可继续使用。证书、机场和个人配置不包含在仓库中。
+也可以在 QX 对应的资源列表中手动添加下面两个 URL（不要当作完整配置导入）：
 
-导入后应停用旧广告/遥测订阅及同范围本地重写，保留机场和正常分流。一键添加不会替你删除旧资源，尤其不要叠加旧闲鱼/淘宝响应脚本。原配置中的跳过上游证书校验设置也应单独复核。
+~~~text
+分流资源 Own-Adblock：
+https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist/reject.list
+
+重写资源 Own-App-Ads：
+https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist/rewrite.snippet
+~~~
+
+两者启用，关闭资源解析器；分流资源策略使用 `reject`。不要把 `import.json` 当作分流列表，也不需要逐个添加脚本。若下载失败，先确认当前网络能够访问 GitHub Raw，不要改用来源不明的镜像或第三方配置转换服务。
 
 资源地址（不需要逐条手动添加）：
 
@@ -40,6 +74,8 @@ quantumult-x:///add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22http
 
 只在你明确要求时更新，不设定时任务。仓库没有云模型密钥、自动收费 API 或自动给自己盖 AI 已审查章的工作流。
 
+日常只需对 AI 说“更新我的去广告源”。AI 完成本节流程并发布后，在手机刷新 `Own-Adblock` 和 `Own-App-Ads` 即可，不要重新导入；如果 QX 提示需要重载配置，按提示操作。导入入口设置的检查间隔为 86,400 秒，手机自动检查的是本仓库已发布版本，不会触发 AI 每天审查外部源。
+
 每次由 AI 维护者实际执行：
 
 1. 重新下载来源和许可，生成本次 run ID、时间、SHA-256 与待审数据。
@@ -48,6 +84,14 @@ quantumult-x:///add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22http
 4. 对比线上内容与本地哈希。下载、审查或测试失败则保留上一版，不直接发布上游结果。
 
 手机可自动检查已发布的自有版本；这不是自动接受上游更新。
+
+## 仍有广告或使用异常
+
+- 先检查两个资源是否下载成功、启用；再确认 QX 隧道、规则模式、重写和 MITM 状态，以及证书是否完全信任。有域名拦截记录，不代表 HTTPS 字段重写也已生效。
+- 检查同接口是否仍有旧重写，或请求是否被其他规则提前直连/放行。应根据请求记录定位，不要批量删除正常业务规则。
+- 当前 App 适配基于特定 Android 样本，尚无 iPhone 真机验证。iOS 的接口、字段、二进制编码、证书固定、HTTP/3 或本地缓存可能使部分规则不命中；抖音已知限制见 [抖音适配说明](DOUYIN.md)。不要通过全局丢弃 UDP 443、关闭 TLS 校验或封禁整个业务主域来盲目补救。
+- 出现列表空白、播放失败或登录异常时，先停用 `Own-App-Ads` 并重试；域名连接被拒绝时，先停用 `Own-Adblock` 并重试。若不能定位，可暂时停用两者。停用只撤销本源的影响，不保证消除其他规则或缓存的影响；无需重置机场或删除证书。
+- 反馈时提供 App/iOS 版本、时间、广告位置和脱敏后的命中规则、主机及路径。确需响应样本时另行脱敏；删除 Cookie、Authorization、查询参数里的 token、用户/设备标识，不要公开完整个人配置、机场订阅或 CA 私钥。
 
 ## 维护命令
 
@@ -58,7 +102,7 @@ node scripts/build-app-bundle.cjs
 node cli.cjs fetch
 node cli.cjs inspect
 # AI 阅读 .work/input.json、.work/inspection.json 与上一版，撰写真正的新审查文件。
-node --test test/cli.test.cjs test/pipeline.test.cjs test/curated.test.cjs
+npm test
 node cli.cjs build reviews/current.json
 node cli.cjs verify
 # 最后才审查 git diff、提交和推送。以上命令不会自行发布。
