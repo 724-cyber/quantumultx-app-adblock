@@ -1,6 +1,6 @@
 # 自有 Quantumult X 去广告源
 
-这是自己维护、AI 审查后发布的激进去广告源。“广告零容忍”是维护策略，不是所有 App 永久零广告的保证。当前为首次测试发布，尚未经过 iPhone 真机验证。
+这是自己维护、AI 审查后发布的激进去广告源。“广告零容忍”是维护策略，不是所有 App 永久零广告的保证。当前 0.2.0 已加入抖音静态适配，尚未经过 iPhone 真机验证。
 
 ## 手机安装
 
@@ -25,10 +25,11 @@ quantumult-x:///add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22http
 - [版本与 AI 审查](dist/release.json)
 - [来源与许可](dist/SOURCES.md)
 
-## 首版范围
+## 当前范围
 
 - 三份公共列表的固定快照，规范化、去重并折叠父域覆盖后，当前为 7,641 条原生 QX reject 条件，无需第三方解析器。
 - 闲鱼开屏、部分首页/同城列表、四个广告点击曝光与失败补报接口；淘宝商业开屏、搜索/默认推荐中的明确 P4P 商品适配。
+- 抖音推荐流明确广告（包括图片及游戏广告）、开屏广告列表、四条精确日志/监控规则。正常游戏视频保留。样本是官网提供的 Android 32.2.6 mobile 通道旧包，不是当前 iOS 实测；缓存回退、动态 tracker、响应编码等限制见 [抖音适配说明](DOUYIN.md)。
 - 默认拒绝两个已知阿里 UT 主机和部分通用统计域。它会影响其他 App 使用同主机的统计，并可能触发缓存/重试；不代表关闭全部遥测。
 - 部分广告点击域也会被拒绝，广告落地链接可能打不开。不会为保留付费广告自动放行；混合业务主机优先字段过滤，不靠封掉登录/支付来去广告。
 - 不包含会员展示伪装、授权激活绕过、安全浏览检查禁用或第三方插件替换，这些不是去广告。
@@ -53,6 +54,7 @@ quantumult-x:///add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22http
 需要 Node.js 20 或更新版本，无 npm 第三方依赖。
 
 ~~~sh
+node scripts/build-app-bundle.cjs
 node cli.cjs fetch
 node cli.cjs inspect
 # AI 阅读 .work/input.json、.work/inspection.json 与上一版，撰写真正的新审查文件。

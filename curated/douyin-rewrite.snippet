@@ -1,0 +1,13 @@
+#!name=抖音广告响应过滤（静态适配）
+#!desc=仅已确认默认主机及JSON；游戏广告一起过滤，普通游戏视频保留。iOS未实测。
+hostname = aweme.snssdk.com, log.zijieapi.com, applog.zijieapi.com, rtlog.zijieapi.com, log.snssdk.com, rtlog.snssdk.com, rtapplog.snssdk.com, mon.snssdk.com, mon.zijieapi.com
+
+^https:\/\/aweme\.snssdk\.com(?::443)?\/aweme\/(?:v1\/feed|v2\/(?:preview\/)?feed)\/(?:\?[^#]*)?$ url script-response-body app-adblock.js
+^https:\/\/aweme\.snssdk\.com(?::443)?\/api\/ad\/splash\/[a-zA-Z0-9_-]{1,40}\/v14\/(?:\?[^#]*)?$ url script-response-body app-adblock.js
+^https:\/\/aweme\.snssdk\.com(?::443)?\/api\/ad\/splash\/realtime\/aweme\/v14\/(?:\?[^#]*)?$ url script-response-body app-adblock.js
+
+# Shared event/SDK telemetry; blocking may cause local retry/cache. No fabricated success.
+^https:\/\/(?:log|applog|rtlog)\.zijieapi\.com\/service\/2\/app_log\/?(?:\?[^#]*)?$ url reject
+^https:\/\/(?:log|rtlog|rtapplog)\.snssdk\.com\/service\/2\/app_log\/?(?:\?[^#]*)?$ url reject
+^https:\/\/log\.zijieapi\.com\/service\/2\/app_log_monitor\/?(?:\?[^#]*)?$ url reject
+^https:\/\/mon\.(?:snssdk|zijieapi)\.com\/monitor\/collect\/?(?:\?[^#]*)?$ url reject

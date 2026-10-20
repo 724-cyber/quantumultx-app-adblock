@@ -1,0 +1,10 @@
+#!name=闲鱼＋淘宝去广告（本地易用版）
+#!desc=开屏、已确认的列表广告与闲鱼广告遥测；配合 app-adblock.js。iOS效果待实测。
+
+hostname = acs.m.goofish.com, g-acs.m.goofish.com, acs.m.taobao.com, channel-acs.m.taobao.com, guide-acs.m.taobao.com
+
+^https?:\/\/(?:(?:g-)?acs\.m\.goofish\.com|(?:channel-)?acs\.m\.taobao\.com)\/(?:gw|h5)\/mtop\.taobao\.idlecommerce\.splash\.(?:async\.)?ads\/\d+(?:\.\d+)*\/?(?:\?[^#]*)?$ url script-response-body app-adblock.js
+^https?:\/\/(?:(?:g-)?acs\.m\.goofish\.com|(?:channel-)?acs\.m\.taobao\.com)\/(?:gw|h5)\/(?:mtop\.taobao\.idlehome\.home\.nextfresh|mtop\.taobao\.wireless\.home\.xianyu\.awesome\.get|mtop\.taobao\.idle\.home\.(?:myattention|moore\.section)|mtop\.taobao\.idle\.local\.(?:home(?:\.(?:top|feeds))?|flow\.plat\.section))\/\d+(?:\.\d+)*\/?(?:\?[^#]*)?$ url script-response-body app-adblock.js
+^https?:\/\/(?:(?:g-)?acs\.m\.goofish\.com|(?:channel-)?acs\.m\.taobao\.com)\/(?:gw|h5)\/mtop\.idle\.ad\.(?:click|expose|failed\.batch\.(?:click|expose))\/1\.0\/?(?:\?[^#]*)?$ url script-echo-response app-adblock.js
+^https?:\/\/(?:guide-)?acs\.m\.taobao\.com\/(?:gw|h5)\/mtop\.taobao\.wireless\.home\.splash\.awesome\.get\/1\.0\/?(?:\?[^#]*)?$ url script-response-body app-adblock.js
+^https?:\/\/(?:guide-)?acs\.m\.taobao\.com\/(?:gw|h5)\/(?:mtop\.taobao\.wsearch\.appsearch|mtop\.relationrecommend\.[Mm]top[Rr]ecommend\.recommend)\/1\.0\/?(?:\?[^#]*)?$ url script-response-body app-adblock.js

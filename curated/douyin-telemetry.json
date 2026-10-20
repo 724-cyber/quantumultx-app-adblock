@@ -1,0 +1,146 @@
+{
+  "source_apk_sha256": "46a3ebd3cf4b9a5020ebcea3aee02facaa80a7baae492b2c12090e5e0999baf0",
+  "package": "com.ss.android.ugc.aweme.mobile",
+  "version": "32.2.6",
+  "authority": "Android static; byte-preserving partial carriers, not iOS capture",
+  "rules": [
+    {
+      "id": "douyin-applog-zijie",
+      "pattern": "^https:\\/\\/(?:log|applog|rtlog)\\.zijieapi\\.com\\/service\\/2\\/app_log\\/?(?:\\?[^#]*)?$",
+      "action": "reject",
+      "hosts": [
+        "log.zijieapi.com",
+        "applog.zijieapi.com",
+        "rtlog.zijieapi.com"
+      ],
+      "path": "/service/2/app_log/",
+      "evidence_ids": [
+        "ev_f802aab8bfb6f1815bf657affd8bf38158088c5e7311fd6ec9886d6a3a99ddc3",
+        "ev_dcad3c38d84026b2c5947cfd27d7e501bcce1cc3217c679a7de211e637a25163"
+      ],
+      "evidence_files": [
+        "evidence/telemetry/05-core-uriconst.json",
+        "evidence/telemetry/10-applog-timely.json"
+      ],
+      "scope": "Packaged URI configuration; actual selection/dynamic replacement not observed. General event/launch telemetry, not just advertisements.",
+      "retry": "Batch failure persists in SQLite queue; retry_count/retry_time advance until configured expiry/max. URL fallback and priority forwarding exist.",
+      "side_effects": [
+        "Shared ByteDance endpoint can affect other apps.",
+        "Blocking can increase retry/cache activity and suppress analytics/experiments.",
+        "Response can carry event-side UID and sampling/flush configuration; no forged success response."
+      ]
+    },
+    {
+      "id": "douyin-applog-legacy",
+      "pattern": "^https:\\/\\/(?:log|rtlog|rtapplog)\\.snssdk\\.com\\/service\\/2\\/app_log\\/?(?:\\?[^#]*)?$",
+      "action": "reject",
+      "hosts": [
+        "log.snssdk.com",
+        "rtlog.snssdk.com",
+        "rtapplog.snssdk.com"
+      ],
+      "path": "/service/2/app_log/",
+      "evidence_ids": [
+        "ev_28573b027f970e590ee1c18a67b3c4e544765fa933f83cfd36038e625b0011f5",
+        "ev_a2088f0a442fe473e1db203fbebb5ffbb49cb2bea525cd1da24e787d5857389f"
+      ],
+      "evidence_files": [
+        "evidence/telemetry/06-lazyload-init.json",
+        "evidence/telemetry/44-lazyload-run.json"
+      ],
+      "scope": "Exact packaged configuration URLs; CustomAppLogConfig gates this configuration. Default production configuration body was not recoverable, so do not claim these are the currently selected phone hosts.",
+      "retry": "Same AppLog batch SQLite queue and URL fallback as above.",
+      "side_effects": [
+        "Shared ByteDance endpoint can affect other apps.",
+        "No blocking of device_register, log_settings or app_alert_check sharing these domains."
+      ]
+    },
+    {
+      "id": "douyin-applog-monitor",
+      "pattern": "^https:\\/\\/log\\.zijieapi\\.com\\/service\\/2\\/app_log_monitor\\/?(?:\\?[^#]*)?$",
+      "action": "reject",
+      "hosts": [
+        "log.zijieapi.com"
+      ],
+      "path": "/service/2/app_log_monitor/",
+      "evidence_ids": [
+        "ev_f802aab8bfb6f1815bf657affd8bf38158088c5e7311fd6ec9886d6a3a99ddc3"
+      ],
+      "evidence_files": [
+        "evidence/telemetry/05-core-uriconst.json"
+      ],
+      "scope": "AppLog monitor URL assigned in packaged UriConstants; sending callback/queue protocol not fully traced.",
+      "retry": "Unknown for this distinct monitor channel; no fabricated response.",
+      "side_effects": [
+        "Removes log-system diagnostics, not visible advertisement content.",
+        "Shared endpoint; not limited to the foreground app."
+      ]
+    },
+    {
+      "id": "douyin-sdk-monitor-collect",
+      "pattern": "^https:\\/\\/mon\\.(?:snssdk|zijieapi)\\.com\\/monitor\\/collect\\/?(?:\\?[^#]*)?$",
+      "action": "reject",
+      "hosts": [
+        "mon.snssdk.com",
+        "mon.zijieapi.com"
+      ],
+      "path": "/monitor/collect/",
+      "evidence_ids": [
+        "ev_1e7a3f97b5504bbcd51ebc91276f6dde1d6ba47e382be3bf2b03bf6d0c1c3759",
+        "ev_de95c07638b9d26c1af3e6d872c20fbf8d17da65877980451722194d7aa97d9f"
+      ],
+      "evidence_files": [
+        "evidence/telemetry/43-sdk-monitor-url.json",
+        "evidence/telemetry/57-sdk-monitor-legacy-url.json"
+      ],
+      "scope": "Actual SDK registration/default-report URL assignments for SDK IDs 4263 and 546423. Exact base path only; does not silently expand to every /monitor/collect/c endpoint or batch.",
+      "retry": "This SDKMonitor queue has not been completely traced; Slardar APM6 separately has disk/memory retries, so do not assume silent drop.",
+      "side_effects": [
+        "Shared performance/error telemetry endpoints; other ByteDance apps may be affected.",
+        "Keeps monitor/appmonitor settings endpoints and all normal content APIs untouched."
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "id": "douyin-slardar-batch",
+      "path": "/monitor/collect/batch/",
+      "reason": "Exact report path confirmed, but currently selected/default host pair not closed with REA; keep candidate instead of broad host/path expansion."
+    },
+    {
+      "id": "douyin-splash-ack",
+      "path": "/api/ad/v2/ack/splash/",
+      "reason": "Host is inherited through QHS/QHa; root splash analysis must close it. HTTP success plus JSON code 30001 triggers up to four attempts; exception returns. No durable queue was seen in this method, not a whole-subsystem absence claim."
+    },
+    {
+      "id": "douyin-feed-ack-action",
+      "path": "/api/ad/v1/ack_action/",
+      "reason": "Only homepage_hot and a raw-ad predicate; successful task emits KrU through EventBus, failure logs. Subscriber meaning and exact host not closed; do not label a response-independent pure upload or fake success."
+    },
+    {
+      "id": "douyin-additional-applog-host",
+      "path": "/service/2/app_log/",
+      "reason": "Auxiliary DEX constant candidate in X/6vX <clinit>; REA inventory confirms class/method but source unavailable. Do not claim full original-APK runtime confirmation."
+    }
+  ],
+  "explicitly_preserved": [
+    "/service/2/device_register/",
+    "/service/2/log_settings/",
+    "/service/2/app_alert_check/",
+    "/api/ad/v1/dislike/",
+    "/api/ad/v1/dislike/cancel/",
+    "/api/ad/v1/report/feedback/",
+    "/api/ad/personality_switch/",
+    "/api/ad/personality_switch/change/",
+    "/aweme/track/report",
+    "/ecom/cf/track/report"
+  ],
+  "limitations": [
+    "Android static 32.2.6 sample, not 2026 newest APK or an iOS traffic observation.",
+    "Original 34-DEX APK exceeded memory/deadline. REA evidence subjects are unsigned single-DEX carriers with byte-preserving provenance, not the full original package.",
+    "No APK execution, account login, business/telemetry API requests, TLS pinning bypass or phone acceptance test occurred.",
+    "Default patterns intentionally do not cover dynamic hosts, arbitrary third-party tracker URLs, native transports, all compressed/signed event payloads, or every ad-click/exposure path.",
+    "Quantumult X URL rejection needs HTTPS interception for the exact hosts; certificate pinning/QUIC/interception failure may prevent matching. Certificate trust does not prove acceptance.",
+    "No full-domain snssdk.com/zijieapi.com rejection and no forged HTTP 200/business-success response."
+  ]
+}

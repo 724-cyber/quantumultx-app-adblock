@@ -1,8 +1,8 @@
 {
-  "subject": "8a8d4494b315fece95a60f2563866796ae0d217bbc402984a63394360ed71efa",
+  "subject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
   "compilerSha256": "d7337dafae41884405bb0b4e538060447dd3ba3a4b13283b47e13f4e6eab9349",
-  "runId": "beffc210-0faa-4b28-84cb-e67ea63414c6",
-  "fetchedAt": "2026-10-20T03:18:19.676Z",
+  "runId": "ca6c0b83-8375-4828-8be1-a1f074716f27",
+  "fetchedAt": "2026-10-20T03:59:11.839Z",
   "policy": "aggressive-ad-and-telemetry-blocking",
   "iosDeviceTested": false,
   "inputRules": 8891,
@@ -701,22 +701,31 @@
   ],
   "review": {
     "status": "approved",
-    "subject": "8a8d4494b315fece95a60f2563866796ae0d217bbc402984a63394360ed71efa",
-    "reviewer": "Codex AI in the user-requested maintenance session",
-    "reviewedAt": "2026-10-20T03:20:58Z",
-    "summary": "AI-reviewed first aggressive candidate. Three public GPLv3 snapshots were freshly downloaded, compared by hash with the earlier audit, parsed and inspected for duplicates, parent-suffix coverage, risky non-ad endpoints and source/script integrity. No upstream JS is executed or passed through. Known security/activation/update conditions and unclear whole-site blocks listed below are excluded; ordinary ad/analytics rejects remain aggressive. This is structural and risk-based review, not a claim that every domain was live-classified or that iOS advertising is eliminated. All available offline App behavior tests must pass before publication.",
+    "subject": "68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e",
+    "reviewer": "Codex AI maintenance session with three Douyin analysis agents and an independent adapter review",
+    "reviewedAt": "2026-10-20T04:02:31Z",
+    "summary": "User-requested Douyin integration reviewed before publication. All three upstream rule snapshots and GPLv3 license texts were freshly downloaded and are byte-identical to the previous release; the existing 54 reasoned exclusions and two malformed-row decisions remain unchanged, including the certificate/activation entries awaiting user markers. Reviewed the Douyin module, its immutable bundle and route metadata against 133 REA records with byte-preserving partial-carrier provenance. Tested explicit ad filtering, ordinary game/video/picture preservation, original numeric bytes, cache flags, duplicate-key ambiguity, Ali regressions and exact telemetry URL scope. Enabled only three response adapters and four exact shared-log rejection rules; batch, ack/stock and dynamic ad trackers remain unenabled pending complete scope/protocol evidence. No original APK, decompiled method bodies, personal profile, credentials or certificate material is published. Static and offline evidence does not establish iOS acceptance, latest-app compatibility or complete elimination of advertisements or telemetry.",
     "scope": [
       "snapshot and license integrity",
       "normalization and semantic deduplication",
       "non-ad safety and entitlement contamination",
       "App script behavior and protocol separation",
-      "no private subscription or certificate distribution"
+      "no private subscription or certificate distribution",
+      "Douyin feed/image/game ad predicates and splash/cache consumer mapping",
+      "Lossless raw JSON range edits and duplicate decision-key regression",
+      "Protocol-aware exact log-path rejection without fake success or whole-domain expansion",
+      "Cross-source host/suffix/keyword overlap and original Ali behavior"
     ],
     "knownRisks": [
       "Legacy domain lists contain stale or repurposed entries; some unobserved false positives remain possible.",
       "Advertising click domains and shared analytics hosts are intentionally aggressive and may affect links, diagnostics and retry queues.",
       "Current App response support derives from specific Android samples; iOS schema, certificate pinning and runtime routing remain unverified.",
-      "No scheduled updates: only a new explicit human update request starts another fetch and AI review."
+      "No scheduled updates: only a new explicit human update request starts another fetch and AI review.",
+      "Douyin sample is historical Android com.ss.android.ugc.aweme.mobile 32.2.6/320206, not the latest standard Android build or current iOS traffic.",
+      "Success Evidence subjects are unsigned, byte-preserving single-DEX carriers; cross-DEX, native, reflection and dynamic behavior remain bounded.",
+      "Feed and splash require visible supported JSON. Different iOS hosts, protobuf/encryption, certificate pinning, HTTP/3 and stale cache may leave ads.",
+      "Realtime action_type=1 and separate valid old splash inventory can still fall back to cached ads.",
+      "Shared AppLog/SDKMonitor rejection affects other apps and can retain/retry local logs; dynamic ad-click tracker paths are not claimed covered."
     ],
     "exclusions": {
       "user-agent,AVOS*": "A whole backend SDK user-agent can include ordinary app data; no advertising-only evidence supports blanket rejection.",
@@ -781,8 +790,65 @@
     "references": [
       "https://10up.com/",
       "https://github.com/NobyDa/Script/blob/master/LICENSE",
-      "https://github.com/w37fhy/QuantumultX/blob/master/LICENSE"
-    ]
+      "https://github.com/w37fhy/QuantumultX/blob/master/LICENSE",
+      "https://www.douyin.com/downloadpage/app",
+      "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/android-32.2.6/douyin.apk"
+    ],
+    "verification": {
+      "projectTests": 54,
+      "independentLosslessAssertions": 2509,
+      "independentBundleAssertions": 25,
+      "telemetryRegexAssertions": 81,
+      "reaRecordFiles": 133,
+      "availableCompleteMethods": 100,
+      "byteVerifiedCarriers": 18,
+      "byteVerifiedOriginalMembers": 40,
+      "iosRuntimeTested": false
+    },
+    "sourceDiff": {
+      "runId": "ca6c0b83-8375-4828-8be1-a1f074716f27",
+      "ruleAndLicenseBytesUnchanged": true,
+      "snapshots": [
+        {
+          "id": "nobyda-ad",
+          "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list",
+          "sha256": "5f80ba17f518660c56660c70f0c263fab006c3ca5f67ff4b9ceaf94b12761c0d",
+          "license": "GPL-3.0",
+          "licenseUrl": "https://raw.githubusercontent.com/NobyDa/Script/master/LICENSE",
+          "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+        },
+        {
+          "id": "w37-ad",
+          "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Advertising.list",
+          "sha256": "f40ae45059f54d6f939c491700d877f769436907f9a42b563f0e8cbabfa5f2f8",
+          "license": "GPL-3.0",
+          "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+          "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+        },
+        {
+          "id": "w37-privacy",
+          "url": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list",
+          "sha256": "4613a728fec974ea33a1674b26b3c70570076764e689ca133466539a181c8e46",
+          "license": "GPL-3.0",
+          "licenseUrl": "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/LICENSE",
+          "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+        }
+      ]
+    },
+    "appAnalysis": {
+      "douyin": {
+        "package": "com.ss.android.ugc.aweme.mobile",
+        "version": "32.2.6",
+        "versionCode": "320206",
+        "sourceApkSha256": "46a3ebd3cf4b9a5020ebcea3aee02facaa80a7baae492b2c12090e5e0999baf0",
+        "sourcePage": "https://www.douyin.com/downloadpage/app",
+        "coverageDocument": "DOUYIN.md",
+        "responseRuleCount": 3,
+        "telemetryRuleCount": 4,
+        "gameScope": "Advertising only; retain organic game videos",
+        "directBusinessOrTelemetryRequestsPerformed": false
+      }
+    }
   },
   "importUrl": "https://quantumult.app/x/open-app/add-resource?remote-resource=%7B%22filter_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Freject.list%2C%20tag%3DOwn-Adblock%2C%20force-policy%3Dreject%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%2C%22rewrite_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Fdist%2Frewrite.snippet%2C%20tag%3DOwn-App-Ads%2C%20update-interval%3D86400%2C%20opt-parser%3Dfalse%2C%20enabled%3Dtrue%22%5D%7D"
 }

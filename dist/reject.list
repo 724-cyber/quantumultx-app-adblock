@@ -1,4 +1,4 @@
-# Own Adblock aggressive; reviewed input 8a8d4494b315fece95a60f2563866796ae0d217bbc402984a63394360ed71efa
+# Own Adblock aggressive; reviewed input 68d8053be25a1f164b22ba1a8a0474eaade666debfc20b6c3fb2e56759182f9e
 host, a.wkanx.com, reject
 host, a0.app.xiaomi.com, reject
 host, abema-adx.ameba.jp, reject
