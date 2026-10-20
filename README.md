@@ -61,6 +61,8 @@ https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/dist/re
 
 ## 当前范围
 
+需要调查微信小程序漏广告时，可使用独立的 [临时脱敏采集工具](tools/wechat-capture/README.md)。它有单独的任务库导入入口，不并入日常去广告订阅；默认不新增 MITM，iPhone 采样效果待验证。
+
 - 三份公共列表的固定快照，规范化、去重并折叠父域覆盖后，当前为 7,641 条原生 QX reject 条件，无需第三方解析器。
 - 闲鱼开屏、部分首页/同城列表、四个广告点击曝光与失败补报接口；淘宝商业开屏、搜索/默认推荐中的明确 P4P 商品适配。
 - 抖音推荐流明确广告（包括图片及游戏广告）、开屏广告列表、四条精确日志/监控规则。正常游戏视频保留。样本是官网提供的 Android 32.2.6 mobile 通道旧包，不是当前 iOS 实测；缓存回退、动态 tracker、响应编码等限制见 [抖音适配说明](DOUYIN.md)。

@@ -1,0 +1,9 @@
+{
+  "importUrl": "https://quantumult.app/x/open-app/ui?module=gallery&type=task&action=add&content=%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Ftools%2Fwechat-capture%2Fgallery.json%22%5D",
+  "nativeImportUrl": "quantumult-x:///ui?module=gallery&type=task&action=add&content=%5B%22https%3A%2F%2Fraw.githubusercontent.com%2F724-cyber%2Fquantumultx-app-adblock%2Fmain%2Ftools%2Fwechat-capture%2Fgallery.json%22%5D",
+  "storeKey": "owned.wx-capture.v1",
+  "gateKey": "owned.wx-capture.v1.gate",
+  "captureAsset": "assets/capture-91258f6bb0dc5419ca64a7a4f78902e3828b50707a68f2206c73957bd125b115.js",
+  "controlAsset": "assets/control-a9255810714e0fbe09dfaba9d20f020edf4840520dafae1cd3f0883fab174bf3.js",
+  "iosDeviceTested": false
+}

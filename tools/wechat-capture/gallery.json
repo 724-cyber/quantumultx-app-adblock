@@ -1,0 +1,19 @@
+{
+  "name": "微信临时脱敏采集",
+  "description": "手动开始后采集最小摘要；最多5分钟/64条。默认不新增MITM、不放行广告、不改已有订阅；导出按钮写入自己的iCloud Drive。iPhone尚待验证。",
+  "task": [
+    {
+      "config": "event-interaction https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/tools/wechat-capture/assets/control-a9255810714e0fbe09dfaba9d20f020edf4840520dafae1cd3f0883fab174bf3.js#action=start, tag=微信采集 开始新采样 清空旧采样, enabled=true",
+      "addons": "https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/tools/wechat-capture/capture.snippet"
+    },
+    {
+      "config": "event-interaction https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/tools/wechat-capture/assets/control-a9255810714e0fbe09dfaba9d20f020edf4840520dafae1cd3f0883fab174bf3.js#action=export, tag=微信采集 停止并导出到iCloud, enabled=true"
+    },
+    {
+      "config": "event-interaction https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/tools/wechat-capture/assets/control-a9255810714e0fbe09dfaba9d20f020edf4840520dafae1cd3f0883fab174bf3.js#action=status, tag=微信采集 查看状态, enabled=true"
+    },
+    {
+      "config": "event-interaction https://raw.githubusercontent.com/724-cyber/quantumultx-app-adblock/main/tools/wechat-capture/assets/control-a9255810714e0fbe09dfaba9d20f020edf4840520dafae1cd3f0883fab174bf3.js#action=clear, tag=微信采集 清除本地采样, enabled=true"
+    }
+  ]
+}
