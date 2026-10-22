@@ -6,7 +6,9 @@ function build(){const p=path.join(dir,'build.cjs');assert(fs.existsSync(p),'cap
 const now=1000000;
 function started(){return core().control('start',null,now).state;}
 const raw=s=>JSON.stringify(s);
-const req=(extra={})=>({url:'https://mp.weixin.qq.com/cgi-bin/mmbiz-bin/js-operatewxdata?api_name=webapi_getadvert&access_token=TOP_SECRET',method:'POST',headers:{Cookie:'COOKIE_SECRET',Authorization:'AUTH_SECRET',Referer:'https://servicewechat.com/wx1234567890abcdef/3/page-frame.html'},...extra});
+// Runtime-only synthetic identifier for realistic Referer redaction; never sourced from an account.
+const syntheticAppId='wx'+Array.from({length:16},(_,digit)=>digit.toString(16)).join('');
+const req=(extra={})=>({url:'https://mp.weixin.qq.com/cgi-bin/mmbiz-bin/js-operatewxdata?api_name=webapi_getadvert&access_token=TOP_SECRET',method:'POST',headers:{Cookie:'COOKIE_SECRET',Authorization:'AUTH_SECRET',Referer:`https://servicewechat.com/${syntheticAppId}/3/page-frame.html`},...extra});
 test('capture remains idle until the user starts a new session',()=>{
  assert.equal(core().capture(null,req(),undefined,now),null);
  const s=started();assert.equal(s.active,true);assert.deepEqual(s.records,[]);assert.equal(s.until,now+300000);
@@ -16,7 +18,7 @@ test('the collector keeps only approved URL fields and never retains request hea
  const out=core().capture(raw(started()),r,undefined,now+123);
  assert.equal(out.records[0].host,'mp.weixin.qq.com');assert.equal(out.records[0].path,'/cgi-bin/mmbiz-bin/js-operatewxdata');
  assert.equal(out.records[0].query.api_name,'webapi_getadvert');assert.equal(out.records[0].miniProgramReferer,true);
- for(const x of ['TOP_SECRET','COOKIE_SECRET','AUTH_SECRET','wx1234567890abcdef','access_token'])assert(!raw(out).includes(x),x);
+ for(const x of ['TOP_SECRET','COOKIE_SECRET','AUTH_SECRET',syntheticAppId,'access_token'])assert(!raw(out).includes(x),x);
  assert.equal(out.records[0].headers,undefined);assert.equal(out.records[0].referer,undefined);
 });
 test('unknown URL segments, parameter names and free text are removed rather than copied',()=>{
